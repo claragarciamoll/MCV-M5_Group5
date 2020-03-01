@@ -15,3 +15,5 @@ On the first project it is implemented a model, done at first with keras, using 
 
 The model built is called Pockenet which is simple, fast and efficient. This model has 4 convolutional layers and at the end an average pooling that helps to reduce the number of parameters.
 
+Slides Project 1: https://docs.google.com/presentation/d/1EObySNg2QzrBMco_XzRF06RO_lm9tRwX5Z2FnkJPpmw/edit?usp=sharing
+
