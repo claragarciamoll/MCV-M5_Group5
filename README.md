@@ -21,5 +21,5 @@ Slides Week 1: https://docs.google.com/presentation/d/1EObySNg2QzrBMco_XzRF06RO_
 
 On this second week it is implemented an object detector algorithm usind Detectron2. In the code there are 3 options, first of all, when the model is not trained that could be run the code using Faster R-CNN or using RetinaNet. On the other hand, when the model is trained using Kitti dataset where the code is run with Faster R-CNN.
 
-Full slides Week 2:
+Full slides Week 2: https://docs.google.com/presentation/d/1Jqn9qbvMEgt0Hi_OwwWv9SsKKzMiekAKXNUeloeEPew/edit?usp=sharing
 
