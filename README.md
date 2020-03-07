@@ -1,6 +1,6 @@
-# Week 1: Introduction to Pytorch
+# Team 05: Object Detection, Recognition and Segmentation
 
-Group 5:
+Members:
 - Gemma Alaix: gemma.alaix@e-campus.uab.cat
 - Sergi Solà: sergi.solac@e-campus.uab.cat
 - Clara Garcia: clara.garciamo@e-campus.uab.cat
@@ -9,7 +9,7 @@ Overleaf link: https://www.overleaf.com/read/vtqcqjffdbpq
 
 
 
-## WEEK 1:
+## WEEK 1: Introduction to Pytorch
 
 On the first week it is implemented a model, done at first with keras, using pytorch. The model created should be able to classify landscapes images into 8 different classes such as, coast, forest, mountain, and so on.
 
