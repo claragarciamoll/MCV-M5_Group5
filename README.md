@@ -13,7 +13,7 @@ Overleaf link: https://www.overleaf.com/read/vtqcqjffdbpq
 
 On the first week it is implemented a model, done at first with keras, using pytorch. The model created should be able to classify landscapes images into 8 different classes such as, coast, forest, mountain, and so on.
 
-The model built is called Pockenet which is simple, fast and efficient. This model has 4 convolutional layers and at the end an average pooling that helps to reduce the number of parameters.
+The model built is called Pokenet which is simple, fast and efficient. This model has 4 convolutional layers and at the end an average pooling that helps to reduce the number of parameters.
 
 Slides Week 1: https://docs.google.com/presentation/d/1EObySNg2QzrBMco_XzRF06RO_lm9tRwX5Z2FnkJPpmw/edit?usp=sharing
 
