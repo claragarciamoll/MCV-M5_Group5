@@ -17,7 +17,7 @@ The model built is called Pokenet which is simple, fast and efficient. This mode
 
 Slides Week 1: https://docs.google.com/presentation/d/1EObySNg2QzrBMco_XzRF06RO_lm9tRwX5Z2FnkJPpmw/edit?usp=sharing
 
-## WEEK 2:
+## WEEK 2: Introduction to Object Detection
 
 On this second week it is implemented an object detector algorithm usind Detectron2. In the code there are 3 options, first of all, when the model is not trained that could be run the code using Faster R-CNN or using RetinaNet. On the other hand, when the model is trained using Kitti dataset where the code is run with Faster R-CNN.
 
