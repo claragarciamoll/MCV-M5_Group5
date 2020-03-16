@@ -157,28 +157,3 @@ class get_kitti_mots_dicts():
             return self.dataset_train
         else:
             return self.dataset_val
-
-
-'''
-dataset = 'KITTI-MOTS'
-
-img_dir = '/media/gemma/My Passport/Master/datasets/MOTSChallenge/train/images'
-annot_dir = '/media/gemma/My Passport/Master/datasets/MOTSChallenge/train/instances'
-
-kitti_mots_dataset = get_kitti_mots_dicts(img_dir,annot_dir,['Pedestrian'])
-kitti_mots_dataset.train_val_split(.2)
-
-for d in ['train', 'val']:
-    DatasetCatalog.register(dataset + '_' + d, lambda d=d: kitti_mots_dataset.get_dicts(d))
-    MetadataCatalog.get(dataset + '_' + d).set(thing_classes=['Pedestrian'])
-
-metadata = MetadataCatalog.get(dataset + '_train')
-
-dataset_dicts = kitti_mots_dataset.dataset_dicts
-for d in random.sample(dataset_dicts, 3):
-    img = cv2.imread(d["file_name"])
-    visualizer = Visualizer(img[:, :, ::-1], metadata=metadata, scale=0.5)
-    vis = visualizer.draw_dataset_dict(d)
-    plt.imshow(vis.get_image()[:, :, ::-1])
-    plt.pause(5)
-'''
