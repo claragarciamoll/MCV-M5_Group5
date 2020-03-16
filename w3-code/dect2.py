@@ -132,8 +132,6 @@ else:
 
     if dataset in 'MOTSChallenge':
 
-        print('hey')
-
         ## Loading images ##
     
         img_dir = '/home/mcv/datasets/MOTSChallenge/train/images'
@@ -180,7 +178,7 @@ else:
         val_loader = build_detection_test_loader(cfg, dataset + '_val')
         inference_on_dataset(trainer.model, val_loader, evaluator)
 
-    if False:
+    else:
 
         # Training and saving model 
 
