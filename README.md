@@ -29,3 +29,9 @@ On this third week it is implemented the methods to solve two challenges propose
 The first challenge is based on pedestrians tracking and segmentation, while the second challenge is to track and segmentate not only pedestrians, but also cars. In order to achieve both challenges two datasets are given, the first one is callet MOTSChallenge whereas the second one is called KITTI-MOTS and two models are used, the Faster R-CNN and the RetinaNet using Detectron2 as in previous week.
 
 Full slides Week 3: https://docs.google.com/presentation/d/1_Uoyy5iyPBSmU83a5mO9xzRgbldVN5zLVR-uq6PiIEg/edit?usp=sharing
+
+## WEEK 4: Introduction to Object Segmentation
+
+
+
+Full slides Week 4: https://docs.google.com/presentation/d/1FevNbnYPYh_Ra6Ob_N1no4BKM0hCSgRR8rPPd5mcWEQ/edit?usp=sharing
