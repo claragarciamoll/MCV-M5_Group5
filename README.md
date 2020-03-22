@@ -32,6 +32,19 @@ Full slides Week 3: https://docs.google.com/presentation/d/1_Uoyy5iyPBSmU83a5mO9
 
 ## WEEK 4: Introduction to Object Segmentation
 
+On this fourth week it is implemented an image instance segmentation algorithm using Detectron2. In the code there are many options that let us to use different models from COCO that uses the Mask R-CNN such as:
+* ResNet50-FPN
+* ResNet101-FPN
+* ResNeXt101-FPN
+* R50-C4
+* R101-C4
+* R50-DC5
+* R101-DC5
+* Cityscapes
 
+Moreover there are more options such as, using the pretrained models or train the model using our own dataset, which is KITTI-MOTS dataset. There is the option to choose different thresholds, different learning rates and different learning rate schedulers such as:
+* WarmupMultiStepLR
+* WarmupCosineLR
 
+On the slides below there are some results obtained usind some different options mentioned before.
 Full slides Week 4: https://docs.google.com/presentation/d/1FevNbnYPYh_Ra6Ob_N1no4BKM0hCSgRR8rPPd5mcWEQ/edit?usp=sharing
