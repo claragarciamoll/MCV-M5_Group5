@@ -40,7 +40,8 @@ On this fourth week it is implemented an image instance segmentation algorithm u
 * R101-C4: Use a ResNet101 conv4 backbone with conv5 head.
 * R50-DC5: Use a ResNet50 conv5 backbone with dilations in conv5, and standard conv and FC heads for mask and box prediction.
 * R101-DC5: Use a ResNet101 conv5 backbone with dilations in conv5, and standard conv and FC heads for mask and box prediction.
-* Cityscapes: Use Mask R-CNN on Cityscapes instance segmentation
+* Cityscapes: Use Mask R-CNN on Cityscapes instance segmentation.
+
 https://github.com/facebookresearch/detectron2/blob/master/MODEL_ZOO.md
 
 Moreover there are more options such as, using the pretrained models or train the model using our own dataset, which is KITTI-MOTS dataset. There is the option to choose different thresholds, different learning rates and different learning rate schedulers such as:
