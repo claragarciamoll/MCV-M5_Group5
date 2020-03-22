@@ -44,9 +44,7 @@ On this fourth week it is implemented an image instance segmentation algorithm u
 
 https://github.com/facebookresearch/detectron2/blob/master/MODEL_ZOO.md
 
-Moreover there are more options such as, using the pretrained models or train the model using our own dataset, which is KITTI-MOTS dataset. There is the option to choose different thresholds, different learning rates and different learning rate schedulers such as:
-* WarmupMultiStepLR
-* WarmupCosineLR
+Moreover there are more options such as, using the pretrained models or train the model using our own dataset, which is KITTI-MOTS dataset. There is the option to choose different thresholds and different learning rates 
 
 On the slides below there are some results obtained usind some different options mentioned before.
 
