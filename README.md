@@ -49,4 +49,5 @@ Moreover there are more options such as, using the pretrained models or train th
 * WarmupCosineLR
 
 On the slides below there are some results obtained usind some different options mentioned before.
+
 Full slides Week 4: https://docs.google.com/presentation/d/1FevNbnYPYh_Ra6Ob_N1no4BKM0hCSgRR8rPPd5mcWEQ/edit?usp=sharing
