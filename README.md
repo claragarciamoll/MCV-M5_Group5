@@ -32,15 +32,16 @@ Full slides Week 3: https://docs.google.com/presentation/d/1_Uoyy5iyPBSmU83a5mO9
 
 ## WEEK 4: Introduction to Object Segmentation
 
-On this fourth week it is implemented an image instance segmentation algorithm using Detectron2. In the code there are many options that let us to use different models from COCO that uses the Mask R-CNN such as:
-* ResNet50-FPN
-* ResNet101-FPN
-* ResNeXt101-FPN
-* R50-C4
-* R101-C4
-* R50-DC5
-* R101-DC5
-* Cityscapes
+On this fourth week it is implemented an image instance segmentation algorithm using Detectron2. In the code there are many options that let us to use different models from COCO that uses the Mask R-CNN with different backbone combinations such as:
+* ResNet50-FPN: Use a ResNet50+FPN with standard convolutional layers and FC heads for mask and box prediction.
+* ResNet101-FPN: Use a ResNet101+FPN with standard conv layers and FC heads for mask and box prediction. 
+* ResNeXt101-FPN: Use a ResNeXt101+FPN with standard conv and FC heads for mask and box prediction.
+* R50-C4: Use a ResNet50 conv4 backbone with conv5 head.
+* R101-C4: Use a ResNet101 conv4 backbone with conv5 head.
+* R50-DC5: Use a ResNet50 conv5 backbone with dilations in conv5, and standard conv and FC heads for mask and box prediction.
+* R101-DC5: Use a ResNet101 conv5 backbone with dilations in conv5, and standard conv and FC heads for mask and box prediction.
+* Cityscapes: Use Mask R-CNN on Cityscapes instance segmentation
+https://github.com/facebookresearch/detectron2/blob/master/MODEL_ZOO.md
 
 Moreover there are more options such as, using the pretrained models or train the model using our own dataset, which is KITTI-MOTS dataset. There is the option to choose different thresholds, different learning rates and different learning rate schedulers such as:
 * WarmupMultiStepLR
