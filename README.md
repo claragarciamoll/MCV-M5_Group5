@@ -49,3 +49,33 @@ Moreover there are more options such as, using the pretrained models or train th
 On the slides below there are some results obtained usind some different options mentioned before.
 
 Full slides Week 4: https://docs.google.com/presentation/d/1FevNbnYPYh_Ra6Ob_N1no4BKM0hCSgRR8rPPd5mcWEQ/edit?usp=sharing
+
+## WEEK 4: Transfer Learning for Object Detection and Segmentation
+
+On this fifth week what is introduced is trasnfer learning and the goal was to use pre-trained and fine-tuning using different datasets datasets in order to train the model. The different combinations used on this project was:
+
+1) Using MOTSChallenge dataset to evaluate the model:
+  * COCO
+  * COCO + Cityscapes
+  * COCO + KITTI-MOTS
+  * COCO + Cityscapes + KITTI-MOTS
+  
+ 2) Using KITTI-MOTS dataset to evaluate the models
+  * COCO
+  * COCO + MOTSChallenge
+  * COCO + Cityscapes
+  * COCO + Cityscapes + MOTSChallenge
+  * COCO + KITTI-MOTS
+  * COCO + KITTI-MOTS + MOTSChallenge
+  * COCO + Cityscapes + KITTI-MOTS
+  * COCO + Cityscapes + KITTI-MOTS + MOTSChallenge
+  
+And finally in this week it is also added the hyperparameters in order to obtain some results and analyse them. The hyperparameters used were:
+
+* Input Resolution
+* Background threshold and Foreground threshold
+* Data augmentation using cropping
+
+On the slides below there are some results obtained usind some different options mentioned before.
+
+Full slides Week 5: https://docs.google.com/presentation/d/1ffRBOUElYEvtR4ZL01RCWqa-9Or2ycHTxAt-cCGvkCA/edit?usp=sharing
