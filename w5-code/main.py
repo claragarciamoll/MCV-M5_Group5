@@ -40,7 +40,7 @@ parser.add_argument('--lr_sch', default=None, type=str,
                     choices=['WarmupMultiStepLR','WarmupCosineLR', None], help='define learning rate scheduler')
 parser.add_argument('--train', default=False, type=bool, help='train model')
 parser.add_argument('--val', default=False, type=bool, help='validate model')
-parser.add_argument('--test', default=True, type=bool, help='test model')
+parser.add_argument('--test', default=False, type=bool, help='test model')
 
 parser.add_argument('--data_augm', default=False, type=bool, help='apply data augmentation')
 parser.add_argument('--scale', default=1, type=float, help='resize input image')
@@ -210,8 +210,8 @@ if args.lr_sch:
 cfg.SOLVER.MAX_ITER = args.iter
 cfg.MODEL.ROI_HEADS.BATCH_SIZE_PER_IMAGE = 256 
 cfg.MODEL.ROI_HEADS.NUM_CLASSES = len(metadata.thing_classes)
-#cfg.SOLVER.FG_THR = 0.7
-#cfg.SOLVER.BG_THR_HI = 0.7
+cfg.SOLVER.FG_THR = 0.7
+cfg.SOLVER.BG_THR_HI = 0.7
 
 
 # Training and saving model
