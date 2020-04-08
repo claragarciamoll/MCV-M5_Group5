@@ -82,6 +82,9 @@ Full slides Week 5: https://docs.google.com/presentation/d/1ffRBOUElYEvtR4ZL01RC
 
 ## WEEK 6: Data Augmentation, Semantic Segmentation and Video Object Segmentation
 
+On this last week there are included data augmentation parameters like crop, horitzontal flip and rotation. Moreover, it is included the usage of the virtual clone of KITTI-MOTS dataset in order to observe how it could improve the results obtained on previous weeks.
+
+Finally, it is used DeepLabv3+ (https://github.com/tensorflow/models/tree/master/research/deeplab), which is a deep learning model for semantic image segmentation. 
 
 Full slides Week 6: https://docs.google.com/presentation/d/1roW6wcd_nX_8PDHGwg0frgG0eMX95xO5_bwbnzgl-hg/edit?usp=sharing
 
