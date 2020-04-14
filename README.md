@@ -5,7 +5,7 @@ Members:
 - Sergi Solà: sergi.solac@e-campus.uab.cat
 - Clara Garcia: clara.garciamo@e-campus.uab.cat
 
-Overleaf link: https://www.overleaf.com/read/vtqcqjffdbpq
+Overleaf link: https://www.overleaf.com/read/gjtkhhxbdryp
 
 
 
@@ -88,4 +88,4 @@ Finally, it is used DeepLabv3+ (https://github.com/tensorflow/models/tree/master
 
 Full slides Week 6: https://docs.google.com/presentation/d/1roW6wcd_nX_8PDHGwg0frgG0eMX95xO5_bwbnzgl-hg/edit?usp=sharing
 
-Final Project Presentation: 
+Final Project Presentation: https://docs.google.com/presentation/d/11YdVDG5UOdnC7ujvP2Od4EOKS8Tkpb3CdPmt7Tc4sYo/edit?usp=sharing 
