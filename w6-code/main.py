@@ -240,14 +240,103 @@ if test:
             if 'png' not in img_name and 'jpg' not in img_name:
                 continue
             
+            im = cv2.imread(join(data_dir_kitti, 'training/image_02', folder_name, img_name))
+            outputs = predictor(im)
+            v = Visualizer(im[:, :, ::-1], metadata=metadata, scale=1.2)
+            v = v.draw_instance_predictions(outputs["instances"].to("cpu"))
+
             if not 'task_f' in args.task:
-
-                im = cv2.imread(join(data_dir_kitti, 'training/image_02', folder_name, img_name))
-                outputs = predictor(im)
-                v = Visualizer(im[:, :, ::-1], metadata=metadata, scale=1.2)
-                v = v.draw_instance_predictions(outputs["instances"].to("cpu"))
-
                 save_path = join(cfg.OUTPUT_DIR, 'Qualitative')
                 os.makedirs(join(save_path, folder_name), exist_ok=True)
                 cv2.imwrite(join(save_path, folder_name, img_name), v.get_image()[:, :, ::-1])
+
+            else:
+                
+                if i == 0:
+                    im_prev = im
+                
+                #Extract bboxes from predictions
+                bboxes = outputs['instances'].to("cpu").pred_boxes.tensor.numpy()
+                masks = outputs['instances'].to('cpu').pred_masks.numpy()
+                classes = outputs['instances'].to("cpu").pred_classes.numpy()
+                
+                bboxes_det = bboxes.copy()
+                
+                #Apply multitracker
+                if tracker_sel == 'OF':
+                    im_prev = np.array(im_prev)[:,:,::-1]
+                    im = np.array(im)[:,:,::-1]
+                    print(im_prev.shape)
+                    print(im.shape)
+                    oflow = cv2.calcOpticalFlowFarneback(im_prev,im, None, 0.5, 3, 15, 3, 5, 1.2, 0)
+                    bboxes = tracker.update(bboxes,oflow)
+                else:
+                    bboxes = tracker.update(bboxes)
+                
+                filename = folder_name+'_'+tracker_sel+'.txt'
+                f = open(filename,"a")
+                
+                img = cv2.cvtColor(im, cv2.COLOR_BGR2RGB)
+                im_pil = Image.fromarray(img)
+
+                im_width, im_height = im_pil.size
+                frame_id = int(img_name.split('.')[0])
+                
+                tracks = OrderedDict()
+                count = 0
+                for idx, bbox in bboxes.items():  
+                                            
+                    tracks.update({idx: tracker.object_paths[idx]})  
+                    
+                    if len(bboxes_det) != len(bboxes.keys()):
+                        eq = 0
+                        for idi in range(0,len(bboxes_det)):
+                            if (bboxes_det[idi,:] == bbox).all():
+                                eq = idi
+                        
+                        if eq == 0:
+                            print('skip')
+                            continue
+                    
+                    print(bbox)
+                    print(bboxes_det[count,:])
+                        
+                    class_id = 10
+                    if classes[count] == 0:
+                        class_id = 2
+                    elif classes[count] == 2:
+                        class_id = 1
+                    
+                    ids = class_id*1000 + idx  
+                    
+                    rle = _mask.encode(np.asfortranarray(np.expand_dims(masks[count,:,:],axis = 2),dtype = np.uint8))
+                    
+                    track = str(frame_id)+' '+str(ids)+ ' '+str(class_id)+' '+str(im_height)+' '+str(im_width)+' '+rle[0]['counts'].decode('utf-8')
+                    
+                    f.write(track+os.linesep)
+                    f.write(os.linesep)
+                    count = count + 1
+                    
+                    print('Boxes 1')
+                
+                f.close()
+                
+                frame = print_func(im.copy(), tracks, tracker)
+                
+                try:
+                        if(out_cap is None):
+                            fshape = frame.shape
+                            video_name = folder_name + "_"+tracker_sel+"_tracking.avi"
+                            out_cap = cv2.VideoWriter(video_name,
+                                                            cv2.VideoWriter_fourcc(*"MJPG"), 
+                                                            25, 
+                                                            (fshape[1],fshape[0]))
+                
+                        out_cap.write(frame.astype('uint8'))  
+                except:
+                        framename = folder_name + '_'+img_name+'_'+tracker_sel+'.jpg'
+                        frame_saved = frame.save(framename)
+                
+                im_prev = im
+                i += 1
             
