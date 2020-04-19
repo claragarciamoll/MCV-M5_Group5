@@ -12,7 +12,7 @@ DeepLab depends on the following libraries:
 *   tf Slim (which is included in the "tensorflow/models/research/" checkout)
 *   Jupyter notebook
 *   Matplotlib
-*   Tensorflow (<2)
+*   Tensorflow (< 2)
 
 For detailed steps to install Tensorflow 1, follow the [Tensorflow installation
 instructions](https://www.tensorflow.org/install/). A typical user can install
@@ -20,9 +20,9 @@ Tensorflow using one of the following commands:
 
 ```bash
 # For CPU
-pip install tensorflow (<2)
+pip install tensorflow
 # For GPU
-pip install tensorflow-gpu (<2)
+pip install tensorflow-gpu
 ```
 
 ## Download DeepLab source code
