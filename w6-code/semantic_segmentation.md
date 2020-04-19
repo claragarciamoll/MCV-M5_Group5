@@ -35,6 +35,8 @@ The converted dataset will be saved at ./deeplab/datasets/cityscapes/tfrecord.
 
 ## Running the train/eval/vis jobs
 
+To run DeepLab, you must add `export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim` to your local `.bashrc`.
+
 A local training job using `xception_65` can be run with the following command:
 
 ```bash
@@ -79,25 +81,16 @@ In order to skip Image-Level, just remove line `add_image_level_feature`, and al
 
 1.  In order to reproduce our results, one needs to use large batch size (> 8),
     and set fine_tune_batch_norm = True. Here, we simply use small batch size
-    during training for the purpose of demonstration. If the users have limited
-    GPU memory at hand, please fine-tune from our provided checkpoints whose
-    batch norm parameters have been trained, and use smaller learning rate with
-    fine_tune_batch_norm = False.
+    during training for the lack of GPU memory and fine_tune_batch_norm = False.
 
-2.  The users should change atrous_rates from [6, 12, 18] to [12, 24, 36] if
-    setting output_stride=8.
+2.  In order to skip Image-Level flag, just remove line `add_image_level_feature`, and also not to use decoder remove `decoder_output_stride` line.
 
-3.  The users could skip the flag, `decoder_output_stride`, if you do not want
-    to use the decoder structure.
-
-4.  Change and add the following flags in order to use the provided dense
-    prediction cell. Note we need to set decoder_output_stride if you want to
-    use the provided checkpoints which include the decoder module.
+3.  Change and add the following flags in order to use the provided dense
+    prediction cell. 
 
 ```bash
 --model_variant="xception_71"
 --dense_prediction_cell_json="deeplab/core/dense_prediction_cell_branch5_top1_cityscapes.json"
---decoder_output_stride=4
 ```
 
 A local evaluation job using `xception_65` can be run with the following
@@ -105,15 +98,19 @@ command:
 
 ```bash
 # From tensorflow/models/research/
-python deeplab/eval.py \
+python3 deeplab/eval.py \
     --logtostderr \
-    --eval_split="val" \
+    --eval_split="val_fine" \
     --model_variant="xception_65" \
     --atrous_rates=6 \
     --atrous_rates=12 \
     --atrous_rates=18 \
     --output_stride=16 \
+    --add_image_level_feature=True \
     --decoder_output_stride=4 \
+    --train_crop_size="769,769" \
+    --train_batch_size=2 \
+    --fine_tune_batch_norm=False \
     --eval_crop_size="1025,2049" \
     --dataset="cityscapes" \
     --checkpoint_dir=${PATH_TO_CHECKPOINT} \
@@ -131,15 +128,19 @@ command:
 
 ```bash
 # From tensorflow/models/research/
-python deeplab/vis.py \
+python3 deeplab/vis.py \
     --logtostderr \
-    --vis_split="val" \
+    --vis_split="val_fine" \
     --model_variant="xception_65" \
     --atrous_rates=6 \
     --atrous_rates=12 \
     --atrous_rates=18 \
     --output_stride=16 \
+    --add_image_level_feature=True \
     --decoder_output_stride=4 \
+    --train_crop_size="769,769" \
+    --train_batch_size=2 \
+    --fine_tune_batch_norm=False \
     --vis_crop_size="1025,2049" \
     --dataset="cityscapes" \
     --colormap_type="cityscapes" \
@@ -151,9 +152,7 @@ python deeplab/vis.py \
 where ${PATH_TO_CHECKPOINT} is the path to the trained checkpoint (i.e., the
 path to train_logdir), ${PATH_TO_VIS_DIR} is the directory in which evaluation
 events will be written to, and ${PATH_TO_DATASET} is the directory in which the
-Cityscapes dataset resides. Note that if the users would like to save the
-segmentation results for evaluation server, set also_save_raw_predictions =
-True.
+Cityscapes dataset resides.
 
 ## Running Tensorboard
 
@@ -167,5 +166,4 @@ tensorboard --logdir=${PATH_TO_LOG_DIRECTORY}
 
 where `${PATH_TO_LOG_DIRECTORY}` points to the directory that contains the
 train, eval, and vis directories (e.g., the folder `train_on_train_set` in the
-above example). Please note it may take Tensorboard a couple minutes to populate
-with data.
+above example). 
