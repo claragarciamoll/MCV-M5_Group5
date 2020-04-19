@@ -1,13 +1,30 @@
 # Running DeepLab on Cityscapes Semantic Segmentation Dataset
 
-This page walks through the steps required to run DeepLab on Cityscapes on a
+This page walks through the steps required trying to reproduce DeepLab performance on Cityscapes on a
 local machine.
+
+## Download DeepLab source code
+
+Clone tensorflow models repository.
+
+``
+git clone https://github.com/tensorflow/models.git
+``
 
 ## Download dataset and convert to TFRecord
 
-We have prepared the script (under the folder `datasets`) to convert Cityscapes
-dataset to TFRecord. The users are required to download the dataset beforehand
-by registering the [website](https://www.cityscapes-dataset.com/).
+You should add cityscapes to datasets folder, found in `models/deeplab`, but also include `cityscapesscripts`, by ``git clone https://github.com/mcordts/cityscapesScripts.git``. Directory structure shoulf look as follows:
+
+```
++ datasets
+  + cityscapes
+    + cityscapesscripts
+    + leftImg8bit
+    + gtFine
+```
+
+Run the script (under the folder `datasets`) to convert Cityscapes
+dataset to TFRecord.
 
 ```bash
 # From the tensorflow/models/research/deeplab/datasets directory.
