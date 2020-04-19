@@ -3,6 +3,28 @@
 This page walks through the steps required trying to reproduce DeepLab performance on Cityscapes on a
 local machine.
 
+## Dependencies
+
+DeepLab depends on the following libraries:
+
+*   Numpy
+*   Pillow 1.0
+*   tf Slim (which is included in the "tensorflow/models/research/" checkout)
+*   Jupyter notebook
+*   Matplotlib
+*   Tensorflow (<2)
+
+For detailed steps to install Tensorflow 1, follow the [Tensorflow installation
+instructions](https://www.tensorflow.org/install/). A typical user can install
+Tensorflow using one of the following commands:
+
+```bash
+# For CPU
+pip install tensorflow (<2)
+# For GPU
+pip install tensorflow-gpu (<2)
+```
+
 ## Download DeepLab source code
 
 Clone tensorflow models repository.
