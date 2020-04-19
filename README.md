@@ -84,8 +84,17 @@ Full slides Week 5: https://docs.google.com/presentation/d/1ffRBOUElYEvtR4ZL01RC
 
 On this last week there are included data augmentation parameters like crop, horitzontal flip and rotation. Moreover, it is included the usage of the virtual clone of KITTI-MOTS dataset in order to observe how it could improve the results obtained on previous weeks.
 
-Finally, it is used DeepLabv3+ (https://github.com/tensorflow/models/tree/master/research/deeplab), which is a deep learning model for semantic image segmentation. 
+Finally, it is used DeepLabv3+ (https://github.com/tensorflow/models/tree/master/research/deeplab), which is a deep learning model for semantic image segmentation. Trying to reproduce the experiments from Table 7 (a) in Chen et
+al [1]. <a href='w6_code/semantic_segmentation.md'>Training semantic segmentation on cityscapes dataset.</a><br>
+
 
 Full slides Week 6: https://docs.google.com/presentation/d/1roW6wcd_nX_8PDHGwg0frgG0eMX95xO5_bwbnzgl-hg/edit?usp=sharing
 
 Final Project Presentation: https://docs.google.com/presentation/d/11YdVDG5UOdnC7ujvP2Od4EOKS8Tkpb3CdPmt7Tc4sYo/edit?usp=sharing 
+
+## References
+
+1.  **Encoder-Decoder with Atrous Separable Convolution for Semantic Image Segmentation**<br />
+    Liang-Chieh Chen, Yukun Zhu, George Papandreou, Florian Schroff, and Hartwig Adam (+ equal
+    contribution). <br />
+    [[link]](https://arxiv.org/pdf/1802.02611.pdf). In ECCV, 2018.
