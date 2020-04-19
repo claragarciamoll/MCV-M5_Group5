@@ -96,8 +96,8 @@ thing_classes = metadata.thing_classes
 
 # Loading images
 
-data_dir_kitti = '/media/gemma/FAG-USB-SSD/Master/M5/datasets/KITTI-MOTS'
-data_dir_vkitti = '/media/gemma/FAG-USB-SSD/Master/M5/datasets/vKITTI'
+data_dir_kitti = '/home/mcv/datasets/KITTI-MOTS'
+data_dir_vkitti = '/home/mcv/datasets/vKITTI'
 map_classes = {1: 2, 2: 0}
 
 # Dataloaders
