@@ -16,7 +16,7 @@ DeepLab depends on the following libraries:
 *   CUDA 10.0
 
 For detailed steps to install Tensorflow 1, follow the [Tensorflow installation
-instructions](https://www.tensorflow.org/install/). A typical user can install
+instructions](https://www.tensorflow.org/install/pip). A typical user can install
 Tensorflow using one of the following commands:
 
 ```bash
