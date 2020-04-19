@@ -35,7 +35,7 @@ The converted dataset will be saved at ./deeplab/datasets/cityscapes/tfrecord.
 
 ## Running the train/eval/vis jobs
 
-To run DeepLab, you must add `export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim` to your local `.bashrc`.
+To run DeepLab, you must add ``export PYTHONPATH=$PYTHONPATH:`pwd`:`pwd`/slim`` to your local `.bashrc`.
 
 A local training job using `xception_65` can be run with the following command:
 
