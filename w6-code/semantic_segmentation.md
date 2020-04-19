@@ -54,7 +54,7 @@ dataset to TFRecord.
 sh convert_cityscapes.sh
 ```
 
-The converted dataset will be saved at ./deeplab/datasets/cityscapes/tfrecord.
+The converted dataset will be saved at ./deeplab/datasets/cityscapes/tfrecord. By default TFRecords will be saved by the prefix `train` or `val`, to avoid future problems you should change it to `train_fine` and `val_fine`.
 
 ## Running the train/eval/vis jobs
 
