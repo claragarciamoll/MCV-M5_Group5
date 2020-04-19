@@ -13,7 +13,7 @@ git clone https://github.com/tensorflow/models.git
 
 ## Download dataset and convert to TFRecord
 
-You should add cityscapes to datasets folder, found in `models/deeplab`, but also include `cityscapesscripts`, by ``git clone https://github.com/mcordts/cityscapesScripts.git``. Directory structure shoulf look as follows:
+You should add cityscapes to datasets folder, from the directory `tensorflow/models/research/deeplab`, but also include `cityscapesscripts`, by ``git clone https://github.com/mcordts/cityscapesScripts.git``. Directory structure should look as follows:
 
 ```
 + datasets
@@ -33,24 +33,6 @@ sh convert_cityscapes.sh
 
 The converted dataset will be saved at ./deeplab/datasets/cityscapes/tfrecord.
 
-## Recommended Directory Structure for Training and Evaluation
-
-```
-+ datasets
-  + cityscapes
-    + leftImg8bit
-    + gtFine
-    + tfrecord
-    + exp
-      + train_on_train_set
-        + train
-        + eval
-        + vis
-```
-
-where the folder `train_on_train_set` stores the train/eval/vis events and
-results (when training DeepLab on the Cityscapes train set).
-
 ## Running the train/eval/vis jobs
 
 A local training job using `xception_65` can be run with the following command:
@@ -59,16 +41,20 @@ A local training job using `xception_65` can be run with the following command:
 # From tensorflow/models/research/
 python deeplab/train.py \
     --logtostderr \
-    --training_number_of_steps=90000 \
-    --train_split="train" \
+    --save_summaries_secs=120 \
+    --save_interval_secs=600 \
+    --training_number_of_steps=30000 \
+    --train_split="train_fine" \
     --model_variant="xception_65" \
     --atrous_rates=6 \
     --atrous_rates=12 \
     --atrous_rates=18 \
     --output_stride=16 \
+    --add_image_level_feature=True \
     --decoder_output_stride=4 \
     --train_crop_size="769,769" \
     --train_batch_size=1 \
+    --fine_tune_batch_norm=False \
     --dataset="cityscapes" \
     --tf_initial_checkpoint=${PATH_TO_INITIAL_CHECKPOINT} \
     --train_logdir=${PATH_TO_TRAIN_DIR} \
@@ -79,6 +65,15 @@ where ${PATH_TO_INITIAL_CHECKPOINT} is the path to the initial checkpoint
 (usually an ImageNet pretrained checkpoint), ${PATH_TO_TRAIN_DIR} is the
 directory in which training checkpoints and events will be written to, and
 ${PATH_TO_DATASET} is the directory in which the Cityscapes dataset resides.
+
+Checkpoints used in this case will be:
+
+Model name                                                                             | File Size
+-------------------------------------------------------------------------------------- | :-------:
+[xception_65_imagenet](http://download.tensorflow.org/models/deeplabv3_xception_2018_01_04.tar.gz) | 447MB
+[xception_71_imagenet](http://download.tensorflow.org/models/xception_71_2018_05_09.tar.gz  ) | 474MB
+
+In order to skip Image-Level, just remove line `add_image_level_feature`, and also not to use decoder remove `decoder_output_stride` line.
 
 **Note that for {train,eval,vis}.py**:
 
