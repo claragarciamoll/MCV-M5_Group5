@@ -85,7 +85,7 @@ Full slides Week 5: https://docs.google.com/presentation/d/1ffRBOUElYEvtR4ZL01RC
 On this last week there are included data augmentation parameters like crop, horitzontal flip and rotation. Moreover, it is included the usage of the virtual clone of KITTI-MOTS dataset in order to observe how it could improve the results obtained on previous weeks.
 
 Finally, it is used DeepLabv3+ (https://github.com/tensorflow/models/tree/master/research/deeplab), which is a deep learning model for semantic image segmentation. Trying to reproduce the experiments from Table 7 (a) in Chen et
-al [1]. <a href='w6_code/semantic_segmentation.md'>Training semantic segmentation on cityscapes dataset.</a><br>
+al [1]. <a href='w6-code/semantic_segmentation.md'>Training semantic segmentation on cityscapes dataset.</a><br>
 
 
 Full slides Week 6: https://docs.google.com/presentation/d/1roW6wcd_nX_8PDHGwg0frgG0eMX95xO5_bwbnzgl-hg/edit?usp=sharing
