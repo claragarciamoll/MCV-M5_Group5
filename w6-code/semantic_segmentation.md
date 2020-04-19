@@ -13,7 +13,7 @@ DeepLab depends on the following libraries:
 *   Jupyter notebook
 *   Matplotlib
 *   Tensorflow (< 2)
-*   Cuda 10.0
+*   CUDA 10.0
 
 For detailed steps to install Tensorflow 1, follow the [Tensorflow installation
 instructions](https://www.tensorflow.org/install/). A typical user can install
