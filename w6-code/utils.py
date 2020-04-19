@@ -775,3 +775,35 @@ def get_centroid(rect):
     x = int((x1+x2)/2)
     y = int((y1+y2)/2)
     return (x, y)
+
+def print_rect(frame, rect, color, dt_id):
+    
+    rect0, rect1, rect2, rect3 = rect[0]
+    
+    pt1 = (int(rect0), int(rect1))
+    pt2 = (int(rect2), int(rect3))
+    cv2.rectangle(frame, pt1, pt2, color, thickness=2)
+    if dt_id is not None:
+        cv2.putText(frame, str(dt_id), (pt1[0], pt1[1]-10), cv2.FONT_HERSHEY_SIMPLEX, 0.9, (36,255,12), 2)
+
+def print_mask_overlap(frame, mask, alpha, color):
+    binary = cv2.bitwise_and(mask,mask).astype(bool)
+    # binary = np.dstack([binary]*3)
+    fcopy = frame.copy()
+    frame[binary] = color
+    beta = 1-alpha
+    frame = cv2.addWeighted(fcopy, beta, frame, alpha, 0.0)
+    return frame
+
+
+def print_single_path(path, frame,  color=(0,255,0)):
+     for index, item in enumerate(path[:-1]): 
+        cv2.line(frame, item, path[index + 1], color, 4)    
+        
+def print_func(frame, dt_rects, tracking):
+    
+    for dt_id, dtrect in dt_rects.items():
+        print_rect(frame, dtrect, (0, 255, 0), dt_id)
+        print_single_path(tracking.object_paths[dt_id], frame, (0, 255, 0))
+
+    return frame
